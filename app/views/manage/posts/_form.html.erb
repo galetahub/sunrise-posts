@@ -1,0 +1,13 @@
+<%= manage_form_for @post do |f| %>
+  <div class="edit-cont">
+    <div class="inputs-bl">
+      <%= f.input :title, :input_html => { :class => "text name" } %>
+      
+      <%= f.input :published_at %>
+      
+      <%= f.ckeditor :content, :input_html => options_for_ckeditor(:width => 860) %>
+    </div>
+  </div>  
+    
+  <%= f.button :submit, :url => manage_posts_path(@structure.id) %>
+<% end %>

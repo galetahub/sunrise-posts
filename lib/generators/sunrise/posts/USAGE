@@ -1,0 +1,11 @@
+Usage:
+  rails generate sunrise:posts:install [options]
+
+Options:
+  [--migrations]  # Indicates when to generate migrations
+                  # Default: true
+                 
+Example:
+  rails g sunrise:posts:install
+  
+  rails g sunrise:posts:install --skip-migrations

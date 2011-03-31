@@ -1,0 +1,7 @@
+= Sunrise Posts
+
+== Install
+
+  rails generate sunrise:posts:install
+  
+  rake db:migrate
