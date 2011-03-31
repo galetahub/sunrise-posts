@@ -9,4 +9,5 @@ module Sunrise
   end
 end
 
+require 'sunrise/posts/version'
 require 'sunrise/posts/engine'
