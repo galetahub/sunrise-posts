@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :manage do
-    scope 'structures/:structure_id' do
+    resources :structures do
       resources :posts
     end
   end
