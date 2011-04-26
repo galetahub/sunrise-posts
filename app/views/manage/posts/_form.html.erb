@@ -1,4 +1,4 @@
-<%= manage_form_for @post do |f| %>
+<%= manage_form_for @post, :url => @post.new_record? ? manage_structure_posts_path(@structure.id) : manage_structure_post_path(@structure.id, @post.id) do |f| %>
   <div class="edit-cont">
     <div class="inputs-bl">
       <%= f.input :title, :input_html => { :class => "text name" } %>
@@ -9,5 +9,5 @@
     </div>
   </div>  
     
-  <%= f.button :submit, :url => manage_posts_path(@structure.id) %>
+  <%= f.button :submit, :url => manage_structure_posts_path(@structure.id) %>
 <% end %>
