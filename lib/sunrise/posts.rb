@@ -1,8 +1,7 @@
 # encoding: utf-8
 module Sunrise  
   module Posts
-    # Default way to setup Devise. Run rails generate devise_install to create
-    # a fresh initializer with all configuration values.
+    # Default way to setup Sunrise.
     def self.setup
       yield self
     end
