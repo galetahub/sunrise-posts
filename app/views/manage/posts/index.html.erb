@@ -17,7 +17,7 @@
       
       <div id="posts" class="stage">
         <%= render :partial=>"manage/posts/post", :collection=>@posts %>
-        <%= paginate @posts %>
+        <%= paginate @posts, :theme => 'manage' %>
       </div>
       
       <script type='text/javascript'>
