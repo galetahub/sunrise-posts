@@ -17,6 +17,6 @@ class PostSweeper < ActionController::Caching::Sweeper
 	
 	  def expire(item=nil)
   	  expire_fragment(%r{/posts})
-	    StructureSweeper.sweep!
+	    Sunrise::Utils.clear_cache
 	  end
 end
