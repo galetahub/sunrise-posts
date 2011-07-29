@@ -3,5 +3,5 @@ class Post < ActiveRecord::Base
   
   attr_accessible :published_at, :content, :title
   
-#  scope :visible, where(:is_visible => true)
+  scope :recently, order("#{quoted_table_name}.published_at DESC")
 end
