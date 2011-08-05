@@ -5,3 +5,5 @@
   rails generate sunrise:posts:install
   
   rake db:migrate
+  
+Copyright (c) 2011 Aimbulance, released under the MIT license

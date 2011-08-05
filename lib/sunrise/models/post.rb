@@ -12,7 +12,6 @@ module Sunrise
           base.send(:include, Utils::Header)
           base.class_eval do
             belongs_to :structure
-            has_many :comments, :as => :commentable, :dependent => :delete_all
             
             validates_presence_of :title, :content
 	
