@@ -1,8 +1,7 @@
 class Manage::PostsController < Manage::BaseController
   inherit_resources
-  defaults :route_prefix => 'manage'
   actions :all, :except => [:show]
-  belongs_to :structure
+  belongs_to :structure, :finder => :find_by_permalink!
   
   load_and_authorize_resource :post, :through => :structure
   
