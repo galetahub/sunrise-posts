@@ -4,9 +4,10 @@ class Manage::PostsController < Manage::BaseController
   belongs_to :structure, :finder => :find_by_permalink!
   
   load_and_authorize_resource :post, :through => :structure
-  
-  before_filter :make_filter, :only => [:index] 
   cache_sweeper :post_sweeper, :only => [:create, :update, :destroy]
+
+  has_scope :with_title, :as => :title, :only => [:index]
+  order_by :title, :published_at
   
   def create
     create!{ manage_structure_posts_path(@structure.id) }
@@ -27,11 +28,6 @@ class Manage::PostsController < Manage::BaseController
     end
     
     def collection
-      @posts = (@posts || end_of_association_chain).merge(@search.scoped).page(params[:page])
-    end
-    
-    def make_filter
-      @search = Sunrise::ModelFilter.new(Post, :attributes=>[ :title, :kind ] )
-      @search.update_attributes(params[:search])
+      @posts = (@posts || end_of_association_chain).order(search_filter.order).page(params[:page])
     end
 end

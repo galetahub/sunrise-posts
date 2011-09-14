@@ -14,6 +14,8 @@ module Sunrise
             belongs_to :structure
             
             validates_presence_of :title, :content
+            
+            scope :with_title, lambda {|title| where(["title LIKE ?", "%#{title}%"]) }
 	
 	          before_save :make_date
           end
