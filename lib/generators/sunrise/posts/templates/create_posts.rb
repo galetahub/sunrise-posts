@@ -1,5 +1,5 @@
 class SunriseCreatePosts < ActiveRecord::Migration
-  def self.up
+  def change
     create_table :posts do |t|
       t.integer :structure_id
       t.string :title, :null => false
@@ -16,9 +16,5 @@ class SunriseCreatePosts < ActiveRecord::Migration
     
     add_index :posts, :structure_id
     add_index :posts, :year
-  end
-
-  def self.down
-    drop_table :posts
   end
 end

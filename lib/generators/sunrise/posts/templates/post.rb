@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   include Sunrise::Models::Post
   
-  has_many :comments, :as => :commentable, :dependent => :delete_all
+  #has_many :comments, :as => :commentable, :dependent => :delete_all
   
   attr_accessible :published_at, :content, :title
   

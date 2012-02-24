@@ -24,6 +24,10 @@ module Sunrise
         copy_file('post.rb', 'app/models/post.rb')
       end
       
+      def create_abstract_model
+        copy_file('sunrise_post.rb', 'app/models/sunrise/sunrise_post.rb')
+      end
+      
       def create_migration
         if options.migrations
           migration_template "create_posts.rb", File.join('db/migrate', "sunrise_create_posts.rb")

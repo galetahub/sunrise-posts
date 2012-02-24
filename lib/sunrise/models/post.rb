@@ -2,24 +2,16 @@
 module Sunrise
   module Models
     module Post
-      def self.included(base)
-        base.send :include, InstanceMethods
-        base.send :extend,  ClassMethods
-      end
+      extend ActiveSupport::Concern
       
-      module ClassMethods
-        def self.extended(base)
-          base.send(:include, Utils::Header)
-          base.class_eval do
-            belongs_to :structure
-            
-            validates_presence_of :title, :content
-            
-            scope :with_title, lambda {|title| where(["title LIKE ?", "%#{title}%"]) }
-	
-	          before_save :make_date
-          end
-        end
+      included do
+        belongs_to :structure
+        
+        validates_presence_of :title, :content
+        
+        scope :with_title, lambda {|title| where(["title LIKE ?", "%#{title}%"]) }
+
+        before_save :make_date
       end
       
       module InstanceMethods
