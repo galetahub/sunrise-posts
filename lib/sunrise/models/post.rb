@@ -2,7 +2,7 @@
 module Sunrise
   module Models
     module Post
-      extend ActiveSupport::Concern
+      extend ::ActiveSupport::Concern
       
       included do
         belongs_to :structure
